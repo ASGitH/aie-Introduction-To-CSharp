@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CSharp_Basics
@@ -11,34 +12,33 @@ namespace CSharp_Basics
         static void Main(string[] args)
         {
             // Text Entry
-            Console.SetWindowSize(100, 50);
+            Console.SetWindowSize(75, 25);
             bool IsScreenClosed = false;
             while (!IsScreenClosed)
             {
                 Console.WriteLine("Type something in chat...");
                 string ChatString = Console.ReadLine();
+                Console.SetCursorPosition(50, Console.CursorTop);
                 // Chat Filter
                 ChatFilter(ChatString);
-                Console.SetCursorPosition(75, Console.CursorTop);
-                Console.WriteLine(ChatString);
             }
         }
         // Chat Filter
         static void ChatFilter(string _string)
         {
-            var DemonetizedWords = new List<string> { "ass", "asshole", "bastard", "bitch", "crap", "damn", "fuck", "goddamn", "hell", "holy shit", "motherfucker", "shit", "son of a bitch" };
+            string[] DemonetizedWords = { "ass", "asshole", "bastard", "bitch", "crap", "damn", "fuck", "goddamn", "hell", "holy shit", "motherfucker", "shit", "son of a bitch" };
 
-            for (int i = 0; i < 13; i++)
+            // Take _string, and make the whole _string undercase
+            string LowerCaseString;
+            LowerCaseString = _string.ToLower();
+
+            for (int j = 0; j < DemonetizedWords.Length; j++)
             {
-                if (_string == DemonetizedWords[i])
-                {
-                    Console.WriteLine("Hey, thats a naughty word -_-");
-                }
-                else
-                {
-                    Console.WriteLine("( =");
-                }
+                int CensoredCharacterlength =  DemonetizedWords[j].Length;
+                string CensoredCharacter = new string('*', CensoredCharacterlength);
+                LowerCaseString = Regex.Replace(LowerCaseString, DemonetizedWords.ElementAt(j), CensoredCharacter);
             }
+            Console.WriteLine(LowerCaseString);
         }
     }
 }

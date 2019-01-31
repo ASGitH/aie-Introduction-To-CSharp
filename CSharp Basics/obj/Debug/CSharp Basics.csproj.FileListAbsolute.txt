@@ -5,3 +5,10 @@ C:\Users\s189074\source\repos\CSharp Basics\CSharp Basics\obj\Debug\CSharp Basic
 C:\Users\s189074\source\repos\CSharp Basics\CSharp Basics\obj\Debug\CSharp Basics.csproj.CoreCompileInputs.cache
 C:\Users\s189074\source\repos\CSharp Basics\CSharp Basics\obj\Debug\CSharp Basics.exe
 C:\Users\s189074\source\repos\CSharp Basics\CSharp Basics\obj\Debug\CSharp Basics.pdb
+C:\Users\s189074\source\repos\Introduction-to-CSharp\CSharp Basics\bin\Debug\CSharp Basics.exe.config
+C:\Users\s189074\source\repos\Introduction-to-CSharp\CSharp Basics\bin\Debug\CSharp Basics.exe
+C:\Users\s189074\source\repos\Introduction-to-CSharp\CSharp Basics\bin\Debug\CSharp Basics.pdb
+C:\Users\s189074\source\repos\Introduction-to-CSharp\CSharp Basics\obj\Debug\CSharp Basics.csprojAssemblyReference.cache
+C:\Users\s189074\source\repos\Introduction-to-CSharp\CSharp Basics\obj\Debug\CSharp Basics.csproj.CoreCompileInputs.cache
+C:\Users\s189074\source\repos\Introduction-to-CSharp\CSharp Basics\obj\Debug\CSharp Basics.exe
+C:\Users\s189074\source\repos\Introduction-to-CSharp\CSharp Basics\obj\Debug\CSharp Basics.pdb
