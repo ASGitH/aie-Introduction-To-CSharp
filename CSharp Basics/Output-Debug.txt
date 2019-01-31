@@ -1,0 +1,4 @@
+﻿'CSharp Basics.exe' (CLR v4.0.30319: DefaultDomain): Loaded 'C:\WINDOWS\Microsoft.Net\assembly\GAC_32\mscorlib\v4.0_4.0.0.0__b77a5c561934e089\mscorlib.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'CSharp Basics.exe' (CLR v4.0.30319: DefaultDomain): Loaded 'C:\Users\s189074\source\repos\CSharp Basics\CSharp Basics\bin\Debug\CSharp Basics.exe'. Symbols loaded.
+The program '[13520] CSharp Basics.exe: Program Trace' has exited with code 0 (0x0).
+The program '[13520] CSharp Basics.exe' has exited with code -1 (0xffffffff).
