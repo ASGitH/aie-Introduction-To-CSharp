@@ -21,6 +21,10 @@ namespace CSharp_Basics
                 Console.SetCursorPosition(50, Console.CursorTop);
                 // Chat Filter
                 ChatFilter(ChatString);
+                // Chat commands: For example, the user types ! or /addCURSEWORD ______
+                // this adds the word to the filter so when you type it, the filter blurs it out.
+                // In order to use a command, the user will type command.(This is where the user will choose between different commands).
+                // Ex: Chat.ChatFilter.AddSwearWord("_____");
             }
         }
         // Chat Filter
