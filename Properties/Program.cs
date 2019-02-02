@@ -10,7 +10,9 @@ namespace Properties
     {
         static void Main(string[] args)
         {
-            // Player
+              // ---------------------------- //
+             // -----***** Player *****----- //
+            // ---------------------------- //
             // ***-- Initialize Players here --***
             Player One = new Player { Health = 100.0f };
             Player Two = new Player { Health = 100.0f };
@@ -52,20 +54,57 @@ namespace Properties
             Three.OverallStatistics();
             Four.OverallStatistics();
 
-            // Vector3 (rudimentary)
+              // ------------------------------------------ //
+             // -----***** Vector3 (rudimentary) *****---- //
+            // ------------------------------------------ //
             Vector3 V3One = new Vector3
             {
-                x = 1.0f,
-                y = 2.0f,
-                z = 3.0f
+                x = 3.0f,
+                y = 5.0f,
+                z = 8.0f
             };
             Vector3 V3Two = new Vector3
             {
-                x = 1.0f,
-                y = 2.0f,
-                z = 3.0f
+                x = 2.0f,
+                y = 7.0f,
+                z = 1.0f
             };
+            // Return the sum of two vectors
+            System.Console.WriteLine("// Return the sum of two vectors");
             Vector3 V3Three = V3One + V3Two;
+            
+            // Return the difference between two vectors
+            System.Console.WriteLine("\n// Return the difference between two vectors");
+            Vector3 V3Four = V3One - V3Two;
+            
+            // Return the magnitude of a vector
+            System.Console.WriteLine("\n// Return the magnitude of a vector");
+            System.Console.WriteLine($"Magnitude: {V3Three.Magnitude()}");
+            
+            // Return the normalized form of a vector
+            System.Console.WriteLine("\n// Return the normalized form of a vector"); 
+            V3One.Normalize();
+
+            // Return the dot product of two vectors
+            System.Console.WriteLine("\n// Return the dot product of two vectors");
+            Vector3 V3Five = new Vector3
+            {
+                x = 3.0f,
+                y = 5.0f,
+                z = 8.0f
+            };
+            Vector3 V3Six = new Vector3
+            {
+                x = 2.0f,
+                y = 7.0f,
+                z = 1.0f
+            };
+            System.Console.WriteLine($"Dot Product: {V3Five.DotProduct(V3Six)}");
+
+              // -------------------------------------- //
+             // -----***** Finite Game State *****---- //
+            // -------------------------------------- //
+            //System.Console.WriteLine("");
             System.Console.ReadLine();
         }   
     }

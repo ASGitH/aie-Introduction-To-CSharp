@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp Basics", "CSharp Bas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Properties", "Properties\Properties.csproj", "{C103B36D-B1A2-4486-BDD7-7D3DC8D29445}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\Interfaces.csproj", "{1BF0BB17-8901-48AB-841F-D004044A343C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C103B36D-B1A2-4486-BDD7-7D3DC8D29445}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C103B36D-B1A2-4486-BDD7-7D3DC8D29445}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C103B36D-B1A2-4486-BDD7-7D3DC8D29445}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BF0BB17-8901-48AB-841F-D004044A343C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BF0BB17-8901-48AB-841F-D004044A343C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BF0BB17-8901-48AB-841F-D004044A343C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BF0BB17-8901-48AB-841F-D004044A343C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
