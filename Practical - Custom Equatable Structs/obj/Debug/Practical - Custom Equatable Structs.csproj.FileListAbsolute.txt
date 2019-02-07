@@ -1,0 +1,7 @@
+C:\Users\s189074\source\repos\Introduction-to-CSharp\Practical - Custom Equatable Structs\bin\Debug\Practical - Custom Equatable Structs.exe.config
+C:\Users\s189074\source\repos\Introduction-to-CSharp\Practical - Custom Equatable Structs\bin\Debug\Practical - Custom Equatable Structs.exe
+C:\Users\s189074\source\repos\Introduction-to-CSharp\Practical - Custom Equatable Structs\bin\Debug\Practical - Custom Equatable Structs.pdb
+C:\Users\s189074\source\repos\Introduction-to-CSharp\Practical - Custom Equatable Structs\obj\Debug\Practical - Custom Equatable Structs.csprojAssemblyReference.cache
+C:\Users\s189074\source\repos\Introduction-to-CSharp\Practical - Custom Equatable Structs\obj\Debug\Practical - Custom Equatable Structs.csproj.CoreCompileInputs.cache
+C:\Users\s189074\source\repos\Introduction-to-CSharp\Practical - Custom Equatable Structs\obj\Debug\Practical - Custom Equatable Structs.exe
+C:\Users\s189074\source\repos\Introduction-to-CSharp\Practical - Custom Equatable Structs\obj\Debug\Practical - Custom Equatable Structs.pdb

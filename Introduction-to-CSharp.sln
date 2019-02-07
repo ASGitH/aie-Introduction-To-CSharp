@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Properties", "Properties\Pr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\Interfaces.csproj", "{1BF0BB17-8901-48AB-841F-D004044A343C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practical - Custom Equatable Structs", "Practical - Custom Equatable Structs\Practical - Custom Equatable Structs.csproj", "{F6484AAB-75EA-4EF7-9988-B2122D4BA886}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{1BF0BB17-8901-48AB-841F-D004044A343C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BF0BB17-8901-48AB-841F-D004044A343C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BF0BB17-8901-48AB-841F-D004044A343C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6484AAB-75EA-4EF7-9988-B2122D4BA886}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6484AAB-75EA-4EF7-9988-B2122D4BA886}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6484AAB-75EA-4EF7-9988-B2122D4BA886}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6484AAB-75EA-4EF7-9988-B2122D4BA886}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

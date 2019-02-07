@@ -1,0 +1,49 @@
+// Interface Example
+	
+	// Main
+	System.Console.WriteLine("Enter the number of employees: ");
+        Employee.NumberOfEmployees = int.Parse(System.Console.ReadLine());  // Number of employees would equal to whatever is picked
+
+        Employee e1 = new Employee();   // Since a new Employee was created, the constructor was called and in the constructor,
+                                        // the employee counter will go up by one every time a new employee was created.
+
+        System.Console.WriteLine("Enter the name of the new employee: ");
+        e1.Name = System.Console.ReadLine();
+
+        System.Console.WriteLine("The employee information: ");
+        System.Console.WriteLine("Employee number: {0}", e1.Counter);
+        System.Console.WriteLine("Employee name: {0}", e1.Name);
+
+	// Class
+	class Employee : IEmployee<Employee>
+   	{
+     		public static int NumberOfEmployees;
+
+        	private string name;    // Why is there a need for a lowercase of the property(name)
+        	public string Name  	// read-write
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
+            }
+        }
+
+        private int counter;
+        public int Counter  // read only
+        {
+            get
+            {
+                return counter;
+            }
+        }
+
+        public Employee() // Constructor
+        {
+            counter = ++NumberOfEmployees;  // When a new employee is created, the number of employees gets added.
+        }
+    }
+}
