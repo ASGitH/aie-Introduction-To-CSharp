@@ -63,31 +63,22 @@ namespace Reflection
             }
             Console.WriteLine($"Number of blocks: " + NumberOfBlocks);
             Console.ReadLine();
-            //foreach (string line in File.ReadLines(path))
-            //{
-            //    if (line.Contains("numberofblocks="))
-            //    {
-            //        string LastFragment = line.Split('=').Last();
-            //        NumberOfBlocks = Int32.Parse(LastFragment);
-            //    }
-            //}
-            //Console.WriteLine($"Number of blocks: " + NumberOfBlocks);
 
-            //// Make an integer array and the size will be based on the number of blocks avaliable
-            //int[] _NumberOfBlocks = new int[NumberOfBlocks];
-            ////for (int i = 0; i < _NumberOfBlocks.Length; i++)
-            ////{
-            ////    // string DefaultValue = i.ToString();
-            ////}
-            //System.Console.WriteLine($"_Number of blocks: " + _NumberOfBlocks.Length);
+            // Make an integer array and the size will be based on the number of blocks avaliable
+            int[] _NumberOfBlocks = new int[NumberOfBlocks];
+            for (int i = 0; i < _NumberOfBlocks.Length; i++)
+            {
+                string DefaultValue = i.ToString();
+            }
+            System.Console.WriteLine($"_Number of blocks: " + _NumberOfBlocks.Length);
 
-            //// Read Room.txt and find the size of the room and input that into two integers
-            //int Rows = 0;   // -,-,-,-,-
-            //int Columns = 0;    // |,
-            //                    // |,
-            //                    // |,
-            //                    // |,
-            //                    // |
+            // Read Room.txt and find the size of the room and input that into two integers
+            int Rows = 0;   // -,-,-,-,-
+            int Columns = 0;    // |,
+                                // |,
+                                // |,
+                                // |,
+                                // |
 
             //foreach (string line in File.ReadLines(path))
             //{
@@ -102,8 +93,8 @@ namespace Reflection
             //        Rows = Int32.Parse(__LastFragment);
             //    }
             //}
-            //Console.WriteLine($"Room columns: " + Columns);
-            //Console.WriteLine($"Room rows: " + Rows);
+            Console.WriteLine($"Room columns: " + Columns);
+            Console.WriteLine($"Room rows: " + Rows);
 
             //// Make an two dimensional integer array and the size will be based on the number of columns & rows avaliable
             //int[,] _ColumnsAnd_Rows = new int[Columns, Rows];

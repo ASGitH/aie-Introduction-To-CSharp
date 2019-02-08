@@ -1,0 +1,8 @@
+C:\Users\s189074\source\repos\Introduction-to-CSharp\BinaryFormatterLib\bin\Debug\netstandard2.0\BinaryFormatterLib.deps.json
+C:\Users\s189074\source\repos\Introduction-to-CSharp\BinaryFormatterLib\bin\Debug\netstandard2.0\BinaryFormatterLib.dll
+C:\Users\s189074\source\repos\Introduction-to-CSharp\BinaryFormatterLib\bin\Debug\netstandard2.0\BinaryFormatterLib.pdb
+C:\Users\s189074\source\repos\Introduction-to-CSharp\BinaryFormatterLib\obj\Debug\netstandard2.0\BinaryFormatterLib.csproj.CoreCompileInputs.cache
+C:\Users\s189074\source\repos\Introduction-to-CSharp\BinaryFormatterLib\obj\Debug\netstandard2.0\BinaryFormatterLib.AssemblyInfoInputs.cache
+C:\Users\s189074\source\repos\Introduction-to-CSharp\BinaryFormatterLib\obj\Debug\netstandard2.0\BinaryFormatterLib.AssemblyInfo.cs
+C:\Users\s189074\source\repos\Introduction-to-CSharp\BinaryFormatterLib\obj\Debug\netstandard2.0\BinaryFormatterLib.dll
+C:\Users\s189074\source\repos\Introduction-to-CSharp\BinaryFormatterLib\obj\Debug\netstandard2.0\BinaryFormatterLib.pdb

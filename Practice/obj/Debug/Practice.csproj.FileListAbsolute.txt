@@ -1,2 +1,7 @@
 C:\Users\s189074\source\repos\Introduction-to-CSharp\Practice\obj\Debug\Practice.csprojAssemblyReference.cache
 C:\Users\s189074\source\repos\Introduction-to-CSharp\Practice\obj\Debug\Practice.csproj.CoreCompileInputs.cache
+C:\Users\s189074\source\repos\Introduction-to-CSharp\Practice\bin\Debug\Practice.exe.config
+C:\Users\s189074\source\repos\Introduction-to-CSharp\Practice\bin\Debug\Practice.exe
+C:\Users\s189074\source\repos\Introduction-to-CSharp\Practice\bin\Debug\Practice.pdb
+C:\Users\s189074\source\repos\Introduction-to-CSharp\Practice\obj\Debug\Practice.exe
+C:\Users\s189074\source\repos\Introduction-to-CSharp\Practice\obj\Debug\Practice.pdb
