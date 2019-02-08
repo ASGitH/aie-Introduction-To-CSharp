@@ -1,0 +1,22 @@
+0	[misc]
+1	numberofblocks=4
+2	roomsize=9,7
+3	[end]
+4
+5	[block definitions]
+6	Exercise1.wall=0
+7	Exercise1.door=1
+8	Exercise1.walkable=2
+9	AdditionalLib.Pit=3
+10	[end]
+11
+12	##these numbers relate to the block definitions.
+13	[room definitions]
+14	000010000
+15	022222220
+16	022232220
+17	022222220
+18	022222220
+19	022222220
+20	000000000
+21	[end]

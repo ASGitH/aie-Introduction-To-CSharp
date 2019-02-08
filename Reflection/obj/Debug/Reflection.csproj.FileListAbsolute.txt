@@ -1,0 +1,7 @@
+C:\Users\s189074\source\repos\Introduction-to-CSharp\Reflection\bin\Debug\Reflection.exe.config
+C:\Users\s189074\source\repos\Introduction-to-CSharp\Reflection\bin\Debug\Reflection.exe
+C:\Users\s189074\source\repos\Introduction-to-CSharp\Reflection\bin\Debug\Reflection.pdb
+C:\Users\s189074\source\repos\Introduction-to-CSharp\Reflection\obj\Debug\Reflection.csprojAssemblyReference.cache
+C:\Users\s189074\source\repos\Introduction-to-CSharp\Reflection\obj\Debug\Reflection.csproj.CoreCompileInputs.cache
+C:\Users\s189074\source\repos\Introduction-to-CSharp\Reflection\obj\Debug\Reflection.exe
+C:\Users\s189074\source\repos\Introduction-to-CSharp\Reflection\obj\Debug\Reflection.pdb

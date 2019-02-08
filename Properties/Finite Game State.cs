@@ -11,9 +11,9 @@ namespace Properties
         // Stages in a fighting game
         enum GameStates { TitleScreen, MainMenu, Options, CharacterSelectScreen, MainGame }
 
-        public static Finite_Game_State OnStateChanged(GameStates OldState)
-        {
+        //public static Finite_Game_State OnStateChanged(GameStates OldState)
+        //{
 
-        }
+        //}
     }
 }

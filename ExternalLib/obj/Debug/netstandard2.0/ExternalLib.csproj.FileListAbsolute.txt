@@ -1,0 +1,9 @@
+C:\Users\s189074\source\repos\Introduction-to-CSharp\ExternalLib\bin\Debug\netstandard2.0\ExternalLib.deps.json
+C:\Users\s189074\source\repos\Introduction-to-CSharp\ExternalLib\bin\Debug\netstandard2.0\ExternalLib.dll
+C:\Users\s189074\source\repos\Introduction-to-CSharp\ExternalLib\bin\Debug\netstandard2.0\ExternalLib.pdb
+C:\Users\s189074\source\repos\Introduction-to-CSharp\ExternalLib\obj\Debug\netstandard2.0\ExternalLib.csprojAssemblyReference.cache
+C:\Users\s189074\source\repos\Introduction-to-CSharp\ExternalLib\obj\Debug\netstandard2.0\ExternalLib.csproj.CoreCompileInputs.cache
+C:\Users\s189074\source\repos\Introduction-to-CSharp\ExternalLib\obj\Debug\netstandard2.0\ExternalLib.AssemblyInfoInputs.cache
+C:\Users\s189074\source\repos\Introduction-to-CSharp\ExternalLib\obj\Debug\netstandard2.0\ExternalLib.AssemblyInfo.cs
+C:\Users\s189074\source\repos\Introduction-to-CSharp\ExternalLib\obj\Debug\netstandard2.0\ExternalLib.dll
+C:\Users\s189074\source\repos\Introduction-to-CSharp\ExternalLib\obj\Debug\netstandard2.0\ExternalLib.pdb

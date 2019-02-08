@@ -1,0 +1,1 @@
+External Dll goes in C:\Users\s189074\source\repos\Introduction-to-CSharp\Reflection\bin\Debug (where the exe is located)
