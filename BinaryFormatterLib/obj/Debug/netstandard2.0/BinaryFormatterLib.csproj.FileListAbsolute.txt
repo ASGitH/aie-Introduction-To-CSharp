@@ -6,3 +6,4 @@ C:\Users\s189074\source\repos\Introduction-to-CSharp\BinaryFormatterLib\obj\Debu
 C:\Users\s189074\source\repos\Introduction-to-CSharp\BinaryFormatterLib\obj\Debug\netstandard2.0\BinaryFormatterLib.AssemblyInfo.cs
 C:\Users\s189074\source\repos\Introduction-to-CSharp\BinaryFormatterLib\obj\Debug\netstandard2.0\BinaryFormatterLib.dll
 C:\Users\s189074\source\repos\Introduction-to-CSharp\BinaryFormatterLib\obj\Debug\netstandard2.0\BinaryFormatterLib.pdb
+C:\Users\s189074\source\repos\Introduction-to-CSharp\BinaryFormatterLib\obj\Debug\netstandard2.0\BinaryFormatterLib.csprojAssemblyReference.cache

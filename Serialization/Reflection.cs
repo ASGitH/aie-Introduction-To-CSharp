@@ -13,9 +13,9 @@ namespace Serialization
         public string dllFileName { get; set; }
         public string extClass { get; set; }
         public string extMethod { get; set; }
-        public void _Reflection(object[] _parameters)
+        public void _Reflection(Object[] _parameters)
         {
-            //First load the external assembly
+            //First load the external_ assembly
             Assembly _Assembly = Assembly.LoadFile(workingDir + dllFileName);
 
             //Get th type of the desired class (including the namespace)
