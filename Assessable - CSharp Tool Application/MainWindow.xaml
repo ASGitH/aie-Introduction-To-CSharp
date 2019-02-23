@@ -6,34 +6,78 @@
         xmlns:local="clr-namespace:Assessable___CSharp_Tool_Application"
         mc:Ignorable="d"
     Title="Platform Jump Tool" Height="500" Width="625" ResizeMode="NoResize">
-    <Grid Name="jd" Background="White">
-        <StackPanel Background="AliceBlue" Margin="0,62,259,348" Orientation="Horizontal">
-            <Button Content="Game" HorizontalAlignment="Center" Name="Game_Button"  Width="87" Click="Game_Button_Click"/>
-            <Button Content="Player" HorizontalAlignment="Center" Name="Player_Button"  Width="87"/>
-            <Button Content="Audio" HorizontalAlignment="Center" Name="Audio_Button"  Width="87"/>
-            <Button Content="Video" HorizontalAlignment="Center" Name="Video_Button"  Width="87"/>
-        </StackPanel>
 
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="338" Margin="360,124,0,0" VerticalAlignment="Top" Width="259"/>
+    <Grid Background="White">
+        <Canvas Height="124" HorizontalAlignment="Left" VerticalAlignment="Top" Width="619">
+            <Image Source="C:\Users\s189074\Downloads\New Piskel.png"/>
+        </Canvas>
 
-        <Grid HorizontalAlignment="Left" Height="338" Margin="0,124,0,0" VerticalAlignment="Top" Width="360">
-            <!-- Level Settings: Rising Obstacle-->
-            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="80" Stroke="Black" VerticalAlignment="Top" Width="360"/>
-            <CheckBox Content="Level Settings: Rising Obstacle?" FontSize="18" FontFamily="Times New Roman" HorizontalAlignment="Center" Margin="54,0,54,258" VerticalAlignment="Center"/>
-            <!-- Level Theme-->
-            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="80" Stroke="Black" VerticalAlignment="Top" Width="360" Margin="0,80,0,0"/>
-            <TextBlock  FontFamily="Times New Roman" FontSize="18" VerticalAlignment="Center" Margin="25,109,0,207" Height="22"><Run Text="Select level theme:"/></TextBlock>
-            <ComboBox  HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="25" Margin="230,107.5,0,0">
-                <ComboBoxItem FontFamily="Times New Roman" Content="Plains" Selected="ComboBoxItem_Selected"/>
-                <ComboBoxItem FontFamily="Times New Roman" Content="Hills"/>
-                <ComboBoxItem FontFamily="Times New Roman" Content="Jungle"/>
-                <ComboBoxItem FontFamily="Times New Roman" Content="Tundra"/>
-            </ComboBox>
-            <!-- Timer Settings -->
-            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="80" Stroke="Black" VerticalAlignment="Top" Width="360" Margin="0,160,0,0"/>
-            <RadioButton FontFamily="Times New Roman" FontSize="18" Margin="10,192,0,121" HorizontalAlignment="Left" VerticalAlignment="Center" Height="25">Stopwatch Enabled</RadioButton>
-            <RadioButton FontFamily="Times New Roman" FontSize="18" Margin="0,192,10,121" HorizontalAlignment="Right" VerticalAlignment="Center" Height="25" Click="RadioButton_Click" >Countdown Timer</RadioButton>
+        <!-- Sections (Tabs) -->
+        <Canvas Margin="-69.25,75,277,348" >
+            <!-- This tab will be empty (When the tool opens, no tab will be selected) -->
+            <TabControl Width="411" Height="45" Canvas.Top="4">
+                <TabItem Header="" Visibility="Hidden"/>
+                <TabItem FontFamily="Times New Roman" FontSize="18" Header="Game" Height="45" MouseUp="GameTab" Width="85.5" Margin="53,0,-53,0"/>
+                <TabItem FontFamily="Times New Roman" FontSize="18" Header="Player" Height="45" Width="85.5" Margin="52,0,-52,0"/>
+                <TabItem FontFamily="Times New Roman" FontSize="18" Header="Audio" Height="45" Width="85.5" Margin="52,0,-52,0"/>
+                <TabItem FontFamily="Times New Roman" FontSize="18" Header="Video" Height="45" Width="85.5" Margin="52,0,-52,0"/>
+            </TabControl>
+        </Canvas>
+
+        <!-- Game Section -->
+        <ScrollViewer Height="338" HorizontalAlignment="Left" HorizontalScrollBarVisibility="Visible" Margin="0,124,0,0" Name="Game_Options" VerticalAlignment="Top" Width="360">
+            <Grid Height="320" HorizontalAlignment="Left" Name="Game_Grid" Visibility="Hidden" VerticalAlignment="Top" Width="342">
+                <!-- Rising Death Pit -->
+                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Stroke="Black" VerticalAlignment="Top" Width="342"/>
+                <CheckBox Content="Rising Death Pit" FontFamily="Times New Roman" FontSize="18" Height="22" HorizontalAlignment="Center" IsChecked="{Binding IsDeathPitRising}" Margin="25,30,10,268" VerticalAlignment="Center" Width="307"/>
+                <!-- Level Theme-->
+                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Margin="0,80,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
+                <TextBlock  FontFamily="Times New Roman" FontSize="18" Height="24" Margin="25,110,0,186" VerticalAlignment="Center"><Run Text="Level Theme:"/></TextBlock>
+                <ComboBox Height="24" HorizontalAlignment="Left" Margin="180,108,0,0" Name="LevelSelect" VerticalAlignment="Top" Width="155">
+                    <ComboBoxItem Content="Hills" FontFamily="Times New Roman" FontSize="18"/>
+                    <ComboBoxItem Content="Jungle" FontFamily="Times New Roman" FontSize="18"/>
+                    <ComboBoxItem Content="Plains" FontFamily="Times New Roman" FontSize="18"/>
+                    <ComboBoxItem Content="Tundra" FontFamily="Times New Roman" FontSize="18"/>
+                </ComboBox>
+                <!-- Stopwatch Settings -->
+                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Margin="0,160,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
+                <RadioButton FontFamily="Times New Roman" FontSize="18" GroupName="Stopwatch" Height="25" IsChecked="{Binding IsStopwatchDisabled}" Margin="10,192,0,103" HorizontalAlignment="Left" VerticalAlignment="Center">Stopwatch Disabled</RadioButton>
+                <RadioButton FontFamily="Times New Roman" FontSize="18" GroupName="Stopwatch" Height="25" IsChecked="{Binding IsStopwatchEnabled}" Margin="0,192,10,103" HorizontalAlignment="Right" VerticalAlignment="Center">Stopwatch Enabled</RadioButton>
+                <!-- Enemies -->
+                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Margin="0,240,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
+                <CheckBox Content="Enemies" FontFamily="Times New Roman" FontSize="18" HorizontalAlignment="Center" IsChecked="{Binding AreEnemiesEnabled}" Margin="25,270,10,30" VerticalAlignment="Center" Width="307"/>
+            </Grid>
+        </ScrollViewer>
+        
+        <!-- Player Section -->
+        <ScrollViewer Height="338" HorizontalAlignment="Left" HorizontalScrollBarVisibility="Visible" Margin="0,124,0,0" Name="Player_Options" VerticalAlignment="Top" Width="360">
+            <Grid Height="320" HorizontalAlignment="Left" Name="Player_Grid" Visibility="Hidden" VerticalAlignment="Top" Width="342">
+                <!-- Rising Death Pit -->
+                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Stroke="Black" VerticalAlignment="Top" Width="342"/>
+                <CheckBox Content="Rising Death Pit" FontFamily="Times New Roman" FontSize="18" Height="22" HorizontalAlignment="Center" IsChecked="{Binding IsDeathPitRising}" Margin="25,30,10,268" VerticalAlignment="Center" Width="307"/>
+                <!-- Level Theme-->
+                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Margin="0,80,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
+                <TextBlock  FontFamily="Times New Roman" FontSize="18" Height="24" Margin="25,110,0,186" VerticalAlignment="Center"><Run Text="Level Theme:"/></TextBlock>
+                <ComboBox Height="24" HorizontalAlignment="Left" Margin="180,108,0,0" Name="DankSelect" VerticalAlignment="Top" Width="155">
+                    <ComboBoxItem Content="Hills" FontFamily="Times New Roman" FontSize="18"/>
+                    <ComboBoxItem Content="Jungle" FontFamily="Times New Roman" FontSize="18"/>
+                    <ComboBoxItem Content="Plains" FontFamily="Times New Roman" FontSize="18"/>
+                    <ComboBoxItem Content="Tundra" FontFamily="Times New Roman" FontSize="18"/>
+                </ComboBox>
+                <!-- Stopwatch Settings -->
+                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Margin="0,160,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
+                <RadioButton FontFamily="Times New Roman" FontSize="18" GroupName="Stopwatch" Height="25" IsChecked="{Binding IsStopwatchDisabled}" Margin="10,192,0,103" HorizontalAlignment="Left" VerticalAlignment="Center">Stopwatch Disabled</RadioButton>
+                <RadioButton FontFamily="Times New Roman" FontSize="18" GroupName="Stopwatch" Height="25" IsChecked="{Binding IsStopwatchEnabled}" Margin="0,192,10,103" HorizontalAlignment="Right" VerticalAlignment="Center">Stopwatch Enabled</RadioButton>
+                <!-- Enemies -->
+                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Margin="0,240,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
+                <CheckBox Content="Enemies" FontFamily="Times New Roman" FontSize="18" HorizontalAlignment="Center" IsChecked="{Binding AreEnemiesEnabled}" Margin="25,270,10,30" VerticalAlignment="Center" Width="307"/>
+            </Grid>
+        </ScrollViewer>
+
+        <!-- Start Game -->
+        <Grid HorizontalAlignment="Left" Height="338" VerticalAlignment="Top" Width="259" Margin="360,124,0,0">
+            <TextBlock FontSize="25" HorizontalAlignment="Center" Margin="0,140" TextAlignment="Center" FontFamily="Impact" TextDecorations="{x:Null}" FontStyle="Italic"> Platform Jump <LineBreak/> Tool</TextBlock>
+            <Button Click="StartButton" Content="Start Game" FontFamily="Times New Roman" FontSize="18" Height="30" Margin="74.5,283,74.5,25" Width="110"/>
         </Grid>
-
     </Grid>
 </Window>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,38 +21,94 @@ namespace Assessable_CSharp_Tool_Application
     /// </summary>
     public partial class MainWindow : Window
     {
+        GameSection gameSection = new GameSection();
         public MainWindow()
         {
-            // The following code below is implemented in 
-            // the XAML window, but is also implemented
-            // below but commented out for future reference.
-
-            // (Lock Window Size)
-            ResizeMode = ResizeMode.NoResize;
-
             InitializeComponent();
+            gameSection.SetDataContext(Game_Grid);
+
+            // (Disable Game Controls)
+            gameSection.DisableGrid(Game_Grid);
+            gameSection.DisableGrid(Player_Grid);
         }
 
-        private void Game_Button_Click(object sender, RoutedEventArgs e)
+        private void GameTab(object sender, MouseButtonEventArgs e)
         {
-            MediaPlayer mediaPlayer = new MediaPlayer();
-            mediaPlayer.Open(new Uri(@"C:\Users\s189074\Downloads\My Name Is Jeff Sound Effect.mp3"));
-            mediaPlayer.Volume = 1;
-            mediaPlayer.Play();
+            gameSection.EnableGrid(Game_Grid);
         }
 
-        private void ComboBoxItem_Selected(object sender, RoutedEventArgs e)
+        private void PlayerTab(object sender, MouseButtonEventArgs e)
         {
-            MediaPlayer mediaPlayer = new MediaPlayer();
-            mediaPlayer.Open(new Uri(@"C:\Users\s189074\Downloads\Misc\Persona 4 Ending Theme - Never More (+ English LyricsSubs).mp3"));
-            mediaPlayer.Volume = 1;
-            mediaPlayer.Play();
+            gameSection.DisableGrid(Game_Grid);
+            gameSection.EnableGrid(Player_Grid);
         }
 
-        private void RadioButton_Click(object sender, RoutedEventArgs e)
+        private void StartButton(object sender, RoutedEventArgs e)
         {
-            
-            jd.Background = Brushes.Black;
+            //MessageBox.Show(string.Format("Is Death Pit Rising: {0}" + "Level Theme: {1}" + "Are Enemies Enabled: {2}", gameSection.IsDeathPitRising, gameSection.DisplayComboBoxSelection(LevelSelect), gameSection.AreEnemiesEnabled);
+            MessageBox.Show(string.Format("Is Death Pit Rising: {0}" + "Are Enemies Enabled: {1}" + "Is Stopwatch Enabled: {2}", gameSection.IsDeathPitRising, gameSection.AreEnemiesEnabled, gameSection.IsStopWatchEnabled));
+            gameSection.WriteGameSectionToFile();
+            //Close();
+        }
+    }
+
+    public partial class GridSettings
+    {
+        public void SetDataContext(Grid grid)
+        {
+            grid.DataContext = this;
+        }
+        public void DisableGrid(Grid grid)
+        {
+            grid.IsEnabled = false;
+            grid.Visibility = Visibility.Hidden;
+        }
+        public void EnableGrid(Grid grid)
+        {
+            grid.IsEnabled = true;
+            grid.Visibility = Visibility.Visible;
+        }
+        public void DisplayComboBoxSelection(ComboBox comboBox)
+        {
+            ComboBoxItem comboBoxItem = (ComboBoxItem)comboBox.SelectedItem;
+            String DCBS = comboBoxItem.Content.ToString();
+        }
+    }
+
+    public partial class GameSection : GridSettings
+    {         
+        // These will store whatever the user ends up chosing at the end
+        public bool IsDeathPitRising { get; set; }
+        public string LevelTheme { get; set; }
+        public bool IsStopWatchDisabled { get; set; }
+        public bool IsStopWatchEnabled { get; set; }
+        public bool AreEnemiesEnabled { get; set; }
+        public void WriteGameSectionToFile()
+        {
+            string path = @"C:\Users\s189074\Downloads\SJ.txt";
+
+            try
+            {
+                if (File.Exists(path))
+                {
+                    File.Delete(path);
+                }
+
+                using(FileStream fs = File.Create(path))
+                {
+                    
+                }
+
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    sw.WriteLine(string.Format("Is Death Pit Rising: {0}" + "Are Enemies Enabled: {1}" + "Is Stopwatch Enabled: {2}", IsDeathPitRising, AreEnemiesEnabled, IsStopWatchEnabled));
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }
