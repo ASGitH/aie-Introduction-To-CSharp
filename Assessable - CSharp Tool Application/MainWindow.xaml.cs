@@ -25,47 +25,51 @@ namespace Assessable_CSharp_Tool_Application
         public MainWindow()
         {
             InitializeComponent();
-            gameSection.SetDataContext(Game_Grid);
+            gameSection.SetDataContext(Game_Scroll_Viewer);
 
             // (Disable Game Controls)
-            gameSection.DisableGrid(Game_Grid);
-            gameSection.DisableGrid(Player_Grid);
+            gameSection.DisableScrollViewer(Game_Scroll_Viewer, Game_Grid);
+            gameSection.DisableScrollViewer(Player_Scroll_Viewer, Player_Grid);
         }
 
         private void GameTab(object sender, MouseButtonEventArgs e)
         {
-            gameSection.EnableGrid(Game_Grid);
+            gameSection.EnableScrollViewer(Game_Scroll_Viewer, Game_Grid);
+            gameSection.DisableScrollViewer(Player_Scroll_Viewer, Player_Grid);
         }
 
         private void PlayerTab(object sender, MouseButtonEventArgs e)
         {
-            gameSection.DisableGrid(Game_Grid);
-            gameSection.EnableGrid(Player_Grid);
+            gameSection.EnableScrollViewer(Player_Scroll_Viewer, Player_Grid);
+            gameSection.DisableScrollViewer(Game_Scroll_Viewer, Game_Grid);
         }
 
         private void StartButton(object sender, RoutedEventArgs e)
         {
-            //MessageBox.Show(string.Format("Is Death Pit Rising: {0}" + "Level Theme: {1}" + "Are Enemies Enabled: {2}", gameSection.IsDeathPitRising, gameSection.DisplayComboBoxSelection(LevelSelect), gameSection.AreEnemiesEnabled);
-            MessageBox.Show(string.Format("Is Death Pit Rising: {0}" + "Are Enemies Enabled: {1}" + "Is Stopwatch Enabled: {2}", gameSection.IsDeathPitRising, gameSection.AreEnemiesEnabled, gameSection.IsStopWatchEnabled));
+            MessageBox.Show(string.Format("Is Death Pit Rising: {0}" + " Are Enemies Enabled: {1}" + " Is Stopwatch Enabled: {2}", gameSection.IsDeathPitRising, gameSection.AreEnemiesEnabled, gameSection.IsStopWatchEnabled));
             gameSection.WriteGameSectionToFile();
             //Close();
         }
     }
 
-    public partial class GridSettings
+    public partial class ScrollViewerSettings
     {
-        public void SetDataContext(Grid grid)
+        public void SetDataContext(ScrollViewer scrollViewer)
         {
-            grid.DataContext = this;
+            scrollViewer.DataContext = this;
         }
-        public void DisableGrid(Grid grid)
+        public void DisableScrollViewer(ScrollViewer scrollViewer, Grid grid)
         {
-            grid.IsEnabled = false;
+            scrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Hidden;
+            scrollViewer.IsEnabled = false;
+            scrollViewer.Visibility = Visibility.Hidden;
             grid.Visibility = Visibility.Hidden;
         }
-        public void EnableGrid(Grid grid)
+        public void EnableScrollViewer(ScrollViewer scrollViewer, Grid grid)
         {
-            grid.IsEnabled = true;
+            scrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Visible;
+            scrollViewer.IsEnabled = true;
+            scrollViewer.Visibility = Visibility.Visible;
             grid.Visibility = Visibility.Visible;
         }
         public void DisplayComboBoxSelection(ComboBox comboBox)
@@ -75,17 +79,18 @@ namespace Assessable_CSharp_Tool_Application
         }
     }
 
-    public partial class GameSection : GridSettings
+    public partial class GameSection : ScrollViewerSettings
     {         
         // These will store whatever the user ends up chosing at the end
         public bool IsDeathPitRising { get; set; }
         public string LevelTheme { get; set; }
-        public bool IsStopWatchDisabled { get; set; }
         public bool IsStopWatchEnabled { get; set; }
         public bool AreEnemiesEnabled { get; set; }
         public void WriteGameSectionToFile()
+
+        // If i can tomorrow, make a tab class that will take a tab and if that tab is click, display that grid and scroll wheel instead of having all these tabs in the class.
         {
-            string path = @"C:\Users\s189074\Downloads\SJ.txt";
+            string path = @"C:\Users\7319a\Downloads\Sj.txt";
 
             try
             {
@@ -96,7 +101,7 @@ namespace Assessable_CSharp_Tool_Application
 
                 using(FileStream fs = File.Create(path))
                 {
-                    
+
                 }
 
                 using (StreamWriter sw = File.CreateText(path))
