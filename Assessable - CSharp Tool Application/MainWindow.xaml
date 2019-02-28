@@ -15,7 +15,7 @@
         <!-- Sections (Tabs) -->
         <Canvas Margin="-69.25,75,277,348" >
             <!-- This tab will be empty (When the tool opens, no tab will be selected) -->
-            <TabControl Width="411" Height="45" Canvas.Top="4">
+            <TabControl Width="411" Height="48" Canvas.Top="4">
                 <TabItem Header="" Visibility="Hidden"/>
                 <TabItem FontFamily="Times New Roman" FontSize="18" Header="Game" Height="45" MouseUp="GameTab" Width="85.5" Margin="53,0,-53,0"/>
                 <TabItem FontFamily="Times New Roman" FontSize="18" Header="Player" Height="45" MouseUp="PlayerTab" Width="85.5" Margin="52,0,-52,0"/>
@@ -26,52 +26,52 @@
 
         <!-- Game Section -->
         <ScrollViewer Height="338" HorizontalAlignment="Left" HorizontalScrollBarVisibility="Visible" Margin="0,124,0,0" Name="Game_Scroll_Viewer" VerticalAlignment="Top" Width="360">
-            <Grid Height="320" HorizontalAlignment="Left" Name="Game_Grid" VerticalAlignment="Top" Visibility="Hidden" Width="342">
-                <!-- Rising Death Pit -->
+            <Grid Height="400" HorizontalAlignment="Left" Name="Game_Grid" VerticalAlignment="Top" Visibility="Visible" Width="342">
+                <!-- Enable Enemies -->
                 <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Stroke="Black" VerticalAlignment="Top" Width="342"/>
-                <CheckBox Content="Rising Death Pit" FontFamily="Times New Roman" FontSize="18" Height="22" HorizontalAlignment="Center" IsChecked="{Binding IsDeathPitRising}" Margin="25,30,10,268" VerticalAlignment="Center" Width="307"/>
-                <!-- Level Theme-->
-                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Margin="0,80,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
-                <TextBlock  FontFamily="Times New Roman" FontSize="18" Height="24" Margin="25,110,0,186" VerticalAlignment="Center"><Run Text="Level Theme:"/></TextBlock>
-                <ComboBox Height="24" HorizontalAlignment="Left" Margin="180,108,0,0" Name="LevelSelect" VerticalAlignment="Top" Width="155">
+                <CheckBox Content="Enable Enemies" FontFamily="Times New Roman" FontSize="18" Height="22" IsChecked="{Binding AreEnemiesEnabled}" Margin="25,28,25,0" VerticalAlignment="Top"/>
+                <!-- Enable Low Gravity -->
+                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Margin="0,78,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
+                <CheckBox Content="Enable Low Gravity" FontFamily="Times New Roman" FontSize="18" Height="22" IsChecked="{Binding IsLowGravityEnabled}" Margin="25,106.5,25,0" VerticalAlignment="Top"/>
+                <!-- Level Theme -->
+                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Margin="0,155,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
+                <TextBlock  FontFamily="Times New Roman" FontSize="18" Height="22" Margin="25,184,25,0" VerticalAlignment="Top"><Run Text="Level Theme:"/></TextBlock>
+                <ComboBox Height="22" Margin="167,184,25,0" Name="LevelSelect" VerticalAlignment="Top" RenderTransformOrigin="0.465,7.958">
                     <ComboBoxItem Content="Hills" FontFamily="Times New Roman" FontSize="18"/>
                     <ComboBoxItem Content="Jungle" FontFamily="Times New Roman" FontSize="18"/>
                     <ComboBoxItem Content="Plains" FontFamily="Times New Roman" FontSize="18"/>
                     <ComboBoxItem Content="Tundra" FontFamily="Times New Roman" FontSize="18"/>
                 </ComboBox>
+                <!-- Rising Death Pit -->
+                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Margin="0,234,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
+                <CheckBox Content="Rising Death Pit" FontFamily="Times New Roman" FontSize="18" HorizontalAlignment="Center" IsChecked="{Binding IsDeathPitRising}" Margin="25,266,10,113" VerticalAlignment="Center" Width="307"/>
                 <!-- Stopwatch Settings -->
-                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Margin="0,160,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
-                <RadioButton Content="Stopwatch Enabled" FontFamily="Times New Roman" FontSize="25" GroupName="Stopwatch" Height="25" Margin="65,187,52,108" IsChecked="{Binding IsStopWatchEnabled}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="225"/>
-                <!-- Enemies -->
-                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Margin="0,240,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
-                <CheckBox Content="Enemies" FontFamily="Times New Roman" FontSize="18" HorizontalAlignment="Center" IsChecked="{Binding AreEnemiesEnabled}" Margin="25,270,10,30" VerticalAlignment="Center" Width="307"/>
+                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Margin="0,313,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
+                <RadioButton Content="Stopwatch Enabled" FontFamily="Times New Roman" FontSize="18" Height="25" Margin="25,340,92,35" IsChecked="{Binding IsStopwatchEnabled}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="225"/>
             </Grid>
         </ScrollViewer>
 
         <!-- Player Section -->
-        <ScrollViewer Height="338" HorizontalAlignment="Left" HorizontalScrollBarVisibility="Visible" Margin="0,124,0,0" Name="Player_Scroll_Viewer" VerticalAlignment="Top" Visibility="Hidden" Width="360">
-            <Grid Height="320" HorizontalAlignment="Left" Name="Player_Grid" VerticalAlignment="Top" Visibility="Hidden" Width="342">
-                <!-- Rising Death Pit -->
+        <ScrollViewer Height="338" HorizontalAlignment="Left" HorizontalScrollBarVisibility="Hidden" Margin="0,124,0,0" Name="Player_Scroll_Viewer" VerticalAlignment="Top" Width="360">
+            <Grid Height="314" HorizontalAlignment="Left" Name="Player_Grid" VerticalAlignment="Top" Visibility="Hidden" Width="342">
+                <!-- Can Double Jump -->
                 <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Stroke="Black" VerticalAlignment="Top" Width="342"/>
-                <CheckBox Content="Double Jump" FontFamily="Times New Roman" FontSize="18" Height="22" HorizontalAlignment="Center" IsChecked="{Binding IsDeathPitRising}" Margin="25,30,10,268" VerticalAlignment="Center" Width="307"/>
-                <!-- Level Theme-->
-                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Margin="0,80,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
-                <TextBlock  FontFamily="Times New Roman" FontSize="18" Height="24" Margin="25,110,0,186" VerticalAlignment="Center"><Run Text="Player's Speed"/></TextBlock>
-                <ComboBox Height="24" HorizontalAlignment="Left" Margin="180,108,0,0" Name="PlayerSpeed" VerticalAlignment="Top" Width="155">
-                    <ComboBoxItem Content="Hills" FontFamily="Times New Roman" FontSize="18"/>
-                    <ComboBoxItem Content="Jungle" FontFamily="Times New Roman" FontSize="18"/>
-                    <ComboBoxItem Content="Plains" FontFamily="Times New Roman" FontSize="18"/>
-                    <ComboBoxItem Content="Tundra" FontFamily="Times New Roman" FontSize="18"/>
-                </ComboBox>
-                <!-- Stopwatch Settings -->
-                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Margin="0,160,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
-                <RadioButton Content="Invisible" FontFamily="Times New Roman" FontSize="25" Height="25" Margin="65,187,52,108" IsChecked="{Binding IsStopWatchEnabled}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="225"/>
-                <!-- Enemies -->
-                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Margin="0,240,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
-                <CheckBox Content="Gravity" FontFamily="Times New Roman" FontSize="18" HorizontalAlignment="Center" IsChecked="{Binding AreEnemiesEnabled}" Margin="25,270,10,30" VerticalAlignment="Center" Width="307"/>
+                <CheckBox Content="Can Double Jump" FontFamily="Times New Roman" FontSize="18" Height="22" IsChecked="{Binding AreEnemiesEnabled}" Margin="25,28,25,0" VerticalAlignment="Top"/>
+                <!-- Is Invisible -->
+                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Margin="0,78,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
+                <CheckBox Content="Is Invisible" FontFamily="Times New Roman" FontSize="18" Height="22" IsChecked="{Binding AreEnemiesEnabled}" Margin="25,106.5,25,0" VerticalAlignment="Top"/>
+                <!-- Player's Name -->
+                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Margin="0,155,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
+                <TextBlock  FontFamily="Times New Roman" FontSize="18" Height="22" Margin="25,184,267,0" VerticalAlignment="Top"><Run Text="Name:"/></TextBlock>
+                <TextBox Margin="100,184,25,108" SpellCheck.IsEnabled="True" Text="{Binding Path='PlayerName'}"/>
+                <!-- Player's Speed -->
+                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Margin="0,234,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
+                <TextBlock HorizontalAlignment="Center" FontFamily="Times New Roman" FontSize="18" Margin="25,0,25,50" Text="Player's Speed" VerticalAlignment="Bottom"/>
+                <TextBox Height="21" HorizontalAlignment="Right" Margin="0,243,25,50" Text="{Binding ElementName=PlayerSpeed, Path=Value}" VerticalAlignment="Center" Width="75"/>
+                <Slider Height="25" IsSnapToTickEnabled="True" Margin="25,279,25,10" Maximum="100" Name="PlayerSpeed" TickFrequency="5" TickPlacement="BottomRight"/>
             </Grid>
         </ScrollViewer>
-        
+
         <!-- Start Game -->
         <Grid HorizontalAlignment="Left" Height="338" VerticalAlignment="Top" Width="259" Margin="360,124,0,0">
             <TextBlock FontSize="25" HorizontalAlignment="Center" Margin="0,140" TextAlignment="Center" FontFamily="Impact" TextDecorations="{x:Null}" FontStyle="Italic"> Platform Jump <LineBreak/> Tool</TextBlock>

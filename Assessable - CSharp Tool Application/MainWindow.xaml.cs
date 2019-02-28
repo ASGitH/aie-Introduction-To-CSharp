@@ -25,7 +25,9 @@ namespace Assessable_CSharp_Tool_Application
         public MainWindow()
         {
             InitializeComponent();
-            gameSection.SetDataContext(Game_Scroll_Viewer);
+            DataContext = gameSection;
+
+            //string SJ = gameSection.DisplayComboBoxSelection(LevelSelect);
 
             // (Disable Game Controls)
             gameSection.DisableScrollViewer(Game_Scroll_Viewer, Game_Grid);
@@ -46,7 +48,8 @@ namespace Assessable_CSharp_Tool_Application
 
         private void StartButton(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(string.Format("Is Death Pit Rising: {0}" + " Are Enemies Enabled: {1}" + " Is Stopwatch Enabled: {2}", gameSection.IsDeathPitRising, gameSection.AreEnemiesEnabled, gameSection.IsStopWatchEnabled));
+            gameSection.DisplayComboBoxSelection(LevelSelect);
+            //MessageBox.Show(string.Format("Are Enemies Enabled: {0}" + Environment.NewLine + "Is Death Pit Rising: {1}" + Environment.NewLine + "Is Low Gravity Enabled: {2}" + Environment.NewLine + "Is Stopwatch Enabled: {3}" + Environment.NewLine + "Level Theme: {4}" + Environment.NewLine + "Player Name: {5}", gameSection.AreEnemiesEnabled, gameSection.IsDeathPitRising, gameSection.IsLowGravityEnabled, gameSection.IsStopwatchEnabled, gameSection.DisplayComboBoxSelection(fff, LevelSelect), gameSection.PlayerName));
             gameSection.WriteGameSectionToFile();
             //Close();
         }
@@ -54,10 +57,6 @@ namespace Assessable_CSharp_Tool_Application
 
     public partial class ScrollViewerSettings
     {
-        public void SetDataContext(ScrollViewer scrollViewer)
-        {
-            scrollViewer.DataContext = this;
-        }
         public void DisableScrollViewer(ScrollViewer scrollViewer, Grid grid)
         {
             scrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Hidden;
@@ -75,22 +74,25 @@ namespace Assessable_CSharp_Tool_Application
         public void DisplayComboBoxSelection(ComboBox comboBox)
         {
             ComboBoxItem comboBoxItem = (ComboBoxItem)comboBox.SelectedItem;
-            String DCBS = comboBoxItem.Content.ToString();
+            String DCBS = comboBox.SelectionBoxItem.ToString();
         }
     }
 
     public partial class GameSection : ScrollViewerSettings
-    {         
+    {
         // These will store whatever the user ends up chosing at the end
-        public bool IsDeathPitRising { get; set; }
-        public string LevelTheme { get; set; }
-        public bool IsStopWatchEnabled { get; set; }
         public bool AreEnemiesEnabled { get; set; }
+        public bool IsDeathPitRising { get; set; }
+        public bool IsLowGravityEnabled{ get; set; }
+        public bool IsStopwatchEnabled { get; set; }
+        public string LevelTheme { get; set; }
+        public string PlayerName { get; set; }
+
         public void WriteGameSectionToFile()
 
         // If i can tomorrow, make a tab class that will take a tab and if that tab is click, display that grid and scroll wheel instead of having all these tabs in the class.
         {
-            string path = @"C:\Users\7319a\Downloads\Sj.txt";
+            string path = @"C:\Users\s189074\Downloads\SJ.txt";
 
             try
             {
@@ -106,7 +108,7 @@ namespace Assessable_CSharp_Tool_Application
 
                 using (StreamWriter sw = File.CreateText(path))
                 {
-                    sw.WriteLine(string.Format("Is Death Pit Rising: {0}" + "Are Enemies Enabled: {1}" + "Is Stopwatch Enabled: {2}", IsDeathPitRising, AreEnemiesEnabled, IsStopWatchEnabled));
+                    sw.WriteLine(string.Format("Are Enemies Enabled: {0}" + Environment.NewLine + "Is Death Pit Rising: {1}" + Environment.NewLine + "Is Low Gravity Enabled: {2}" + Environment.NewLine + "Is Stopwatch Enabled: {3}" + Environment.NewLine + "Level Theme: {4}" + Environment.NewLine + "Player Name: {5}", AreEnemiesEnabled, IsDeathPitRising, IsLowGravityEnabled, IsStopwatchEnabled, LevelTheme, PlayerName));
                 }
             }
 
