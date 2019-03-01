@@ -23,54 +23,50 @@ namespace Assessable_CSharp_Tool_Application
     public partial class MainWindow : Window
     {
         GameSection gameSection = new GameSection();
+        List<ScrollViewer> ScrollViewers = new List<ScrollViewer>();
+        List<Grid> Grids = new List<Grid>();
+
         public MainWindow()
         {
             File.Delete(gameSection.path);
+
             InitializeComponent();
             DataContext = gameSection;
 
+            gameSection.AddScrollViewerAndGrid(ScrollViewers, Game_Scroll_Viewer, Grids, Game_Grid);
+            gameSection.AddScrollViewerAndGrid(ScrollViewers, Player_Scroll_Viewer, Grids, Player_Grid);
+            gameSection.AddScrollViewerAndGrid(ScrollViewers, Audio_Scroll_Viewer, Grids, Audio_Grid);
+            gameSection.AddScrollViewerAndGrid(ScrollViewers, Video_Scroll_Viewer, Grids, Video_Grid);
+
             // (Disable Game Controls)
-            gameSection.DisableScrollViewer(Game_Scroll_Viewer, Game_Grid);
-            gameSection.DisableScrollViewer(Player_Scroll_Viewer, Player_Grid);
-            gameSection.DisableScrollViewer(Audio_Scroll_Viewer, Audio_Grid);
-            gameSection.DisableScrollViewer(Video_Scroll_Viewer, Video_Grid);
+            gameSection.DisableScrollViewerAndGrid(ScrollViewers, Grids);
         }
 
+        // Triggers (Buttons, OnClick, OnMouseDown)
         private void GameTab(object sender, MouseButtonEventArgs e)
         {
-            gameSection.EnableScrollViewer(Game_Scroll_Viewer, Game_Grid);
-            gameSection.DisableScrollViewer(Player_Scroll_Viewer, Player_Grid);
-            gameSection.DisableScrollViewer(Audio_Scroll_Viewer, Audio_Grid);
-            gameSection.DisableScrollViewer(Video_Scroll_Viewer, Video_Grid);
+            gameSection.EnableScrollViewerAndGrid(ScrollViewers, Grids, 0);
         }
 
         private void PlayerTab(object sender, MouseButtonEventArgs e)
         {
-            gameSection.EnableScrollViewer(Player_Scroll_Viewer, Player_Grid);
-            gameSection.DisableScrollViewer(Game_Scroll_Viewer, Game_Grid);
-            gameSection.DisableScrollViewer(Audio_Scroll_Viewer, Audio_Grid);
-            gameSection.DisableScrollViewer(Video_Scroll_Viewer, Video_Grid);
+            gameSection.EnableScrollViewerAndGrid(ScrollViewers, Grids, 1);
         }
 
         private void AudioTab(object sender, MouseButtonEventArgs e)
         {
-            gameSection.EnableScrollViewer(Audio_Scroll_Viewer, Audio_Grid);
-            gameSection.DisableScrollViewer(Game_Scroll_Viewer, Game_Grid);
-            gameSection.DisableScrollViewer(Player_Scroll_Viewer, Player_Grid);
-            gameSection.DisableScrollViewer(Video_Scroll_Viewer, Video_Grid);
+            gameSection.EnableScrollViewerAndGrid(ScrollViewers, Grids, 2);
         }
 
         private void VideoTab(object sender, MouseButtonEventArgs e)
         {
-            gameSection.EnableScrollViewer(Video_Scroll_Viewer, Video_Grid);
-            gameSection.DisableScrollViewer(Game_Scroll_Viewer, Game_Grid);
-            gameSection.DisableScrollViewer(Player_Scroll_Viewer, Player_Grid);
-            gameSection.DisableScrollViewer(Audio_Scroll_Viewer, Audio_Grid);
+            gameSection.EnableScrollViewerAndGrid(ScrollViewers, Grids, 3);
         }
 
         private void StartButton(object sender, RoutedEventArgs e)
         {
             MessageBox.Show(string.Format("Game Section" + Environment.NewLine + "------------" + Environment.NewLine + "Are Enemies Enabled: {0}" + Environment.NewLine + "Is Death Pit Rising: {1}" + Environment.NewLine + "Is Low Gravity Enabled: {2}" + Environment.NewLine + "Is Stopwatch Enabled: {3}" + Environment.NewLine + "Level Theme: {4}" + Environment.NewLine + Environment.NewLine + "Player Section" + Environment.NewLine + "--------------" + Environment.NewLine + "Can Double Jump: {5}" + Environment.NewLine + "Is Invisible: {6}" + Environment.NewLine + "Player's Name: {7}" + Environment.NewLine + "Player's Speed: {8}" + Environment.NewLine + Environment.NewLine + "Audio Section" + Environment.NewLine + "-------------" + Environment.NewLine + "Enable Audio: {9}" + Environment.NewLine + "Track: {10}" + Environment.NewLine + "Custom Track: {11}" + Environment.NewLine + Environment.NewLine + "Video Section" + Environment.NewLine + "-------------" + Environment.NewLine + "Window Width: {12}" + " x " + "Window Height: {13}" + Environment.NewLine + "Tool Background: {14}", gameSection.AreEnemiesEnabled, gameSection.IsDeathPitRising, gameSection.IsLowGravityEnabled, gameSection.IsStopwatchEnabled, gameSection.DisplayComboBoxSelection(LevelSelect), gameSection.CanDoubleJump, gameSection.IsInvisible, gameSection.PlayerName, gameSection.DisplaySliderValue(PlayerSpeed), gameSection.EnableAudio, gameSection.Track, gameSection.CustomTrack, gameSection.WindowWidth, gameSection.WindowHeight, gameSection.ToolBackground));
+            gameSection.WriteGameSectionToFile();
             Close();
         }
 
@@ -138,20 +134,44 @@ namespace Assessable_CSharp_Tool_Application
 
     public partial class ScrollViewerSettings
     {
-        public void DisableScrollViewer(ScrollViewer scrollViewer, Grid grid)
+        public void AddScrollViewerAndGrid(List<ScrollViewer> scrollViewers, ScrollViewer scrollViewer, List<Grid> grids, Grid grid)
         {
-            scrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Hidden;
-            scrollViewer.IsEnabled = false;
-            scrollViewer.Visibility = Visibility.Hidden;
-            grid.Visibility = Visibility.Hidden;
+            scrollViewers.Add(scrollViewer);
+            grids.Add(grid);
         }
-        public void EnableScrollViewer(ScrollViewer scrollViewer, Grid grid)
+
+        public void DisableScrollViewerAndGrid(List<ScrollViewer> scrollViewers, List<Grid> grids)
         {
-            scrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Visible;
-            scrollViewer.IsEnabled = true;
-            scrollViewer.Visibility = Visibility.Visible;
-            grid.Visibility = Visibility.Visible;
+            for (int i = 0; i < scrollViewers.Count(); i++)
+            {
+                scrollViewers[i].HorizontalScrollBarVisibility = ScrollBarVisibility.Hidden;
+                scrollViewers[i].IsEnabled = false;
+                scrollViewers[i].Visibility = Visibility.Hidden;
+                grids[i].Visibility = Visibility.Hidden;
+                // continue;
+            }
         }
+
+        public void EnableScrollViewerAndGrid(List<ScrollViewer> scrollViewers, List<Grid> grids, int Index)
+        {
+            for (int i = 0; i < scrollViewers.Count(); i++)
+            {
+                if (i == Index)
+                {
+                    scrollViewers[i].HorizontalScrollBarVisibility = ScrollBarVisibility.Visible;
+                    scrollViewers[i].IsEnabled = true;
+                    scrollViewers[i].Visibility = Visibility.Visible;
+                    grids[i].Visibility = Visibility.Visible;
+                    continue;
+                }
+                scrollViewers[i].HorizontalScrollBarVisibility = ScrollBarVisibility.Hidden;
+                scrollViewers[i].IsEnabled = false;
+                scrollViewers[i].Visibility = Visibility.Hidden;
+                grids[i].Visibility = Visibility.Hidden;
+                // continue;
+            }
+        }
+
         public string DisplayComboBoxSelection(ComboBox comboBox)
         {
             ComboBoxItem comboBoxItem = (ComboBoxItem)comboBox.SelectedItem;
@@ -166,10 +186,10 @@ namespace Assessable_CSharp_Tool_Application
         }
     }
 
-    public partial class GameSection : ScrollViewerSettings
+public partial class GameSection : ScrollViewerSettings
     {
         // Misc.
-        public string path = @".\SJ.txt";
+        public string path = @".\Preferences.txt";
         public MediaPlayer mediaPlayer = new MediaPlayer();
 
         // Game Section
