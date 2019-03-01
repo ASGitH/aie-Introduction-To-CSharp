@@ -8,8 +8,18 @@
     Title="Platform Jump Tool" Height="500" Width="625" ResizeMode="NoResize">
 
     <Grid Background="White">
-        <Canvas Height="124" HorizontalAlignment="Left" VerticalAlignment="Top" Width="619">
-            <!--Image Source="C:\Users\s189074\Downloads\New Piskel.png"/-->
+        <Canvas Height="124" HorizontalAlignment="Left" Name="BackgroundCanvas" VerticalAlignment="Top" Width="619">
+            <Image Name="BackgroundCanvasImage" Source="{Binding Path= ToolBackgroundTextBox}"/>
+            <DockPanel Width="619">
+                <Menu DockPanel.Dock="Top">
+                    <MenuItem FontFamily="Times New Roman" FontSize="18" Header="File">
+                        <MenuItem Click="NewClick" Header="New"/>
+                        <MenuItem Click="SaveClick" Header="Save"/>
+                        <Separator/>
+                        <MenuItem Click="ExitClick" Header="Exit"/>
+                    </MenuItem>
+                </Menu>
+            </DockPanel>
         </Canvas>
 
         <!-- Sections (Tabs) -->
@@ -19,35 +29,35 @@
                 <TabItem Header="" Visibility="Hidden"/>
                 <TabItem FontFamily="Times New Roman" FontSize="18" Header="Game" Height="45" MouseUp="GameTab" Width="85.5" Margin="53,0,-53,0"/>
                 <TabItem FontFamily="Times New Roman" FontSize="18" Header="Player" Height="45" MouseUp="PlayerTab" Width="85.5" Margin="52,0,-52,0"/>
-                <TabItem FontFamily="Times New Roman" FontSize="18" Header="Audio" Height="45" Width="85.5" Margin="52,0,-52,0"/>
-                <TabItem FontFamily="Times New Roman" FontSize="18" Header="Video" Height="45" Width="85.5" Margin="52,0,-52,0"/>
+                <TabItem FontFamily="Times New Roman" FontSize="18" Header="Audio" Height="45" MouseUp="AudioTab" Width="85.5" Margin="52,0,-52,0"/>
+                <TabItem FontFamily="Times New Roman" FontSize="18" Header="Video" Height="45" MouseUp="VideoTab" Width="85.5" Margin="52,0,-52,0"/>
             </TabControl>
         </Canvas>
 
         <!-- Game Section -->
-        <ScrollViewer Height="338" HorizontalAlignment="Left" HorizontalScrollBarVisibility="Visible" Margin="0,124,0,0" Name="Game_Scroll_Viewer" VerticalAlignment="Top" Width="360">
-            <Grid Height="400" HorizontalAlignment="Left" Name="Game_Grid" VerticalAlignment="Top" Visibility="Visible" Width="342">
+        <ScrollViewer Height="338" HorizontalAlignment="Left" HorizontalScrollBarVisibility="Hidden" Margin="0,124,0,0" Name="Game_Scroll_Viewer" VerticalAlignment="Top" Width="359">
+            <Grid Height="422.5" HorizontalAlignment="Left" Name="Game_Grid" VerticalAlignment="Top" Visibility="Hidden" Width="342.5">
                 <!-- Enable Enemies -->
-                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Stroke="Black" VerticalAlignment="Top" Width="342"/>
-                <CheckBox Content="Enable Enemies" FontFamily="Times New Roman" FontSize="18" Height="22" IsChecked="{Binding AreEnemiesEnabled}" Margin="25,28,25,0" VerticalAlignment="Top"/>
+                <Rectangle Fill="#FFF4F4F5" Height="84.5" HorizontalAlignment="Left" Stroke="Black" VerticalAlignment="Top" Width="342"/>
+                <CheckBox Content="Enable Enemies" FontFamily="Times New Roman" FontSize="18" Height="25" IsChecked="{Binding AreEnemiesEnabled}" Margin="25,29.5,25,0" VerticalAlignment="Top"/>
                 <!-- Enable Low Gravity -->
-                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Margin="0,78,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
-                <CheckBox Content="Enable Low Gravity" FontFamily="Times New Roman" FontSize="18" Height="22" IsChecked="{Binding IsLowGravityEnabled}" Margin="25,106.5,25,0" VerticalAlignment="Top"/>
+                <Rectangle Fill="#FFF4F4F5" Height="85" HorizontalAlignment="Left" Margin="0,84,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
+                <CheckBox Content="Enable Low Gravity" FontFamily="Times New Roman" FontSize="18" Height="22" IsChecked="{Binding IsLowGravityEnabled}" Margin="25,115.5,25,0" VerticalAlignment="Top"/>
                 <!-- Level Theme -->
-                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Margin="0,155,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
-                <TextBlock  FontFamily="Times New Roman" FontSize="18" Height="22" Margin="25,184,25,0" VerticalAlignment="Top"><Run Text="Level Theme:"/></TextBlock>
-                <ComboBox Height="22" Margin="167,184,25,0" Name="LevelSelect" VerticalAlignment="Top" RenderTransformOrigin="0.465,7.958">
+                <Rectangle Fill="#FFF4F4F5" Height="85" HorizontalAlignment="Left" Margin="0,169,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
+                <TextBlock  FontFamily="Times New Roman" FontSize="18" Height="22" Margin="25,200.5,25,0" VerticalAlignment="Top"><Run Text="Level Theme:"/></TextBlock>
+                <ComboBox Height="22" Margin="167,200,25,0" Name="LevelSelect"  SelectedValue="{Binding LevelTheme}" VerticalAlignment="Top" RenderTransformOrigin="0.465,7.958">
                     <ComboBoxItem Content="Hills" FontFamily="Times New Roman" FontSize="18"/>
                     <ComboBoxItem Content="Jungle" FontFamily="Times New Roman" FontSize="18"/>
                     <ComboBoxItem Content="Plains" FontFamily="Times New Roman" FontSize="18"/>
                     <ComboBoxItem Content="Tundra" FontFamily="Times New Roman" FontSize="18"/>
                 </ComboBox>
                 <!-- Rising Death Pit -->
-                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Margin="0,234,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
-                <CheckBox Content="Rising Death Pit" FontFamily="Times New Roman" FontSize="18" HorizontalAlignment="Center" IsChecked="{Binding IsDeathPitRising}" Margin="25,266,10,113" VerticalAlignment="Center" Width="307"/>
+                <Rectangle Fill="#FFF4F4F5" Height="84" HorizontalAlignment="Left" Margin="0,254,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
+                <CheckBox Content="Rising Death Pit" FontFamily="Times New Roman" FontSize="18" IsChecked="{Binding IsDeathPitRising}" Margin="25,285.5,25,0" VerticalAlignment="Top"/>
                 <!-- Stopwatch Settings -->
-                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Margin="0,313,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
-                <RadioButton Content="Stopwatch Enabled" FontFamily="Times New Roman" FontSize="18" Height="25" Margin="25,340,92,35" IsChecked="{Binding IsStopwatchEnabled}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="225"/>
+                <Rectangle Fill="#FFF4F4F5" Height="84" HorizontalAlignment="Left" Margin="0,338,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
+                <RadioButton Content="Stopwatch Enabled" FontFamily="Times New Roman" FontSize="18" Height="25" Margin="25,0,25.5,29.5" IsChecked="{Binding IsStopwatchEnabled}" VerticalAlignment="Bottom"/>
             </Grid>
         </ScrollViewer>
 
@@ -56,10 +66,10 @@
             <Grid Height="314" HorizontalAlignment="Left" Name="Player_Grid" VerticalAlignment="Top" Visibility="Hidden" Width="342">
                 <!-- Can Double Jump -->
                 <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Stroke="Black" VerticalAlignment="Top" Width="342"/>
-                <CheckBox Content="Can Double Jump" FontFamily="Times New Roman" FontSize="18" Height="22" IsChecked="{Binding AreEnemiesEnabled}" Margin="25,28,25,0" VerticalAlignment="Top"/>
+                <CheckBox Content="Can Double Jump" FontFamily="Times New Roman" FontSize="18" Height="22" IsChecked="{Binding CanDoubleJump}" Margin="25,28,25,0" VerticalAlignment="Top"/>
                 <!-- Is Invisible -->
                 <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Margin="0,78,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
-                <CheckBox Content="Is Invisible" FontFamily="Times New Roman" FontSize="18" Height="22" IsChecked="{Binding AreEnemiesEnabled}" Margin="25,106.5,25,0" VerticalAlignment="Top"/>
+                <CheckBox Content="Is Invisible" FontFamily="Times New Roman" FontSize="18" Height="22" IsChecked="{Binding IsInvisible}" Margin="25,106.5,25,0" VerticalAlignment="Top"/>
                 <!-- Player's Name -->
                 <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Margin="0,155,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
                 <TextBlock  FontFamily="Times New Roman" FontSize="18" Height="22" Margin="25,184,267,0" VerticalAlignment="Top"><Run Text="Name:"/></TextBlock>
@@ -67,14 +77,62 @@
                 <!-- Player's Speed -->
                 <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Margin="0,234,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
                 <TextBlock HorizontalAlignment="Center" FontFamily="Times New Roman" FontSize="18" Margin="25,0,25,50" Text="Player's Speed" VerticalAlignment="Bottom"/>
-                <TextBox Height="21" HorizontalAlignment="Right" Margin="0,243,25,50" Text="{Binding ElementName=PlayerSpeed, Path=Value}" VerticalAlignment="Center" Width="75"/>
-                <Slider Height="25" IsSnapToTickEnabled="True" Margin="25,279,25,10" Maximum="100" Name="PlayerSpeed" TickFrequency="5" TickPlacement="BottomRight"/>
+                <TextBox Height="21" HorizontalAlignment="Right" Margin="0,243,50,50" Text="{Binding ElementName=PlayerSpeed, Path=Value}" VerticalAlignment="Center" Width="50"/>
+                <Slider Height="25" IsSnapToTickEnabled="True" Margin="25,279,25,10" Maximum="100" Name="PlayerSpeed" TickFrequency="5" TickPlacement="BottomRight" Value="{Binding PlayerSpeed}"/>
+            </Grid>
+        </ScrollViewer>
+
+        <!-- Audio Section -->
+        <ScrollViewer Height="338" HorizontalAlignment="Left" HorizontalScrollBarVisibility="Hidden" Margin="0,124,0,0" Name="Audio_Scroll_Viewer" VerticalAlignment="Top" Width="360">
+            <Grid Height="314" HorizontalAlignment="Left" Name="Audio_Grid" VerticalAlignment="Top" Visibility="Hidden" Width="342">
+                <!-- Is Audio Enabled -->
+                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Stroke="Black" VerticalAlignment="Top" Width="342"/>
+                <CheckBox Content="Enable Audio" FontFamily="Times New Roman" FontSize="18" Height="22" IsChecked="{Binding EnableAudio}" Margin="25,28,25,0" VerticalAlignment="Top"/>
+                <!-- Select Track -->
+                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Margin="0,79,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
+                <TextBlock  FontFamily="Times New Roman" FontSize="18" Height="22" Margin="25,106.5,25,0" VerticalAlignment="Top"><Run Text="Select Track:"/></TextBlock>
+                <ComboBox Height="22" Margin="167,106,25,0" Name="TrackSelection"  SelectedValue="{Binding Path='Track'}" VerticalAlignment="Top" RenderTransformOrigin="0.465,7.958">
+                    <ComboBoxItem Content="Never More" FontFamily="Times New Roman" FontSize="18"/>
+                    <ComboBoxItem Content="Skies the Limit (Extended)" FontFamily="Times New Roman" FontSize="18"/>
+                    <ComboBoxItem Content="We are One and All" FontFamily="Times New Roman" FontSize="18"/>
+                </ComboBox>
+                <!-- Custom Track -->
+                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Margin="0,155,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
+                <TextBlock FontFamily="Times New Roman" FontSize="18" Height="22" Margin="25,170,25,122"><Run Text="Custom Track:"/></TextBlock>
+                <TextBox KeyDown="OnKeyDown" Margin="25,192,125,95" Name="CustomTrackTextBox" SpellCheck.IsEnabled="True" Text="{Binding CustomTrack, UpdateSourceTrigger=PropertyChanged}"/>
+                <Button Click="BrowseFilesButton" Content="Browse Audio" FontFamily="Times New Roman" FontSize="18" Margin="222,192,10,0" VerticalAlignment="Top"/>
+            </Grid>
+        </ScrollViewer>
+
+        <!-- Video Section -->
+        <ScrollViewer Height="338" HorizontalAlignment="Left" HorizontalScrollBarVisibility="Hidden" Margin="0,124,0,0" Name="Video_Scroll_Viewer" VerticalAlignment="Top" Width="360">
+            <Grid Height="314" HorizontalAlignment="Left" x:Name="Video_Grid" VerticalAlignment="Top" Visibility="Hidden" Width="342">
+                <!-- Chnage Screen Size -->
+                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Stroke="Black" VerticalAlignment="Top" Width="342"/>
+                <Label Content="Window Width" FontFamily="Times New Roman" FontSize="18" HorizontalAlignment="Left" Margin="37.5,20,0,263" Width="125"/>
+                <Label Content="Window Height" FontFamily="Times New Roman" FontSize="18" Margin="0,20,37.5,263" Width="125" HorizontalAlignment="Right"/>
+                <TextBox Height="23" HorizontalAlignment="Left" KeyDown="OnKeyDown" Margin="50,51,0,0" x:Name="WindowWidthTextBox" PreviewTextInput="NumericalValuesOnly" Text="{Binding WindowWidth}" VerticalAlignment="Top" Width="100"/>
+                <Label Content="x" FontFamily="Times New Roman" HorizontalAlignment="Center" Margin="163,50,163,240"/>
+                <TextBox Height="23" HorizontalAlignment="Right" KeyDown="OnKeyDown" Margin="0,51,50,0" x:Name="WindowHeightTextBox" PreviewTextInput="NumericalValuesOnly" Text="{Binding WindowHeight}" VerticalAlignment="Top" Width="100"/>
+                <!-- (Misc) Change tool Background and Color -->
+                <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Margin="0,79,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
+                <TextBlock FontFamily="Times New Roman" FontSize="18" Height="22" Margin="25,85,25,207"><Run Text="Tool Background:"/></TextBlock>
+                <TextBox KeyDown="OnKeyDown" Margin="25,107,135,180" x:Name="ToolBackgroundTextBox" SpellCheck.IsEnabled="True" Text="{Binding ToolBackground, UpdateSourceTrigger=PropertyChanged}"/>
+                <Button Click="ToolBackgroundButton" Content="Browse Images" FontFamily="Times New Roman" FontSize="18" Margin="212,107,10,0" VerticalAlignment="Top"/>
             </Grid>
         </ScrollViewer>
 
         <!-- Start Game -->
         <Grid HorizontalAlignment="Left" Height="338" VerticalAlignment="Top" Width="259" Margin="360,124,0,0">
-            <TextBlock FontSize="25" HorizontalAlignment="Center" Margin="0,140" TextAlignment="Center" FontFamily="Impact" TextDecorations="{x:Null}" FontStyle="Italic"> Platform Jump <LineBreak/> Tool</TextBlock>
+            <TextBlock FontSize="50" Margin="160,0,-150,270" TextAlignment="Center" FontFamily="Impact" TextDecorations="{x:Null}" FontStyle="Italic" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="250">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform><Run Text="Game Tool"/></TextBlock>
             <Button Click="StartButton" Content="Start Game" FontFamily="Times New Roman" FontSize="18" Height="30" Margin="74.5,283,74.5,25" Width="110"/>
         </Grid>
     </Grid>

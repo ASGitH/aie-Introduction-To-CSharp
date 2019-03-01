@@ -1,0 +1,25 @@
+Game Section
+------------
+Are Enemies Enabled: False
+Is Death Pit Rising: False
+Is Low Gravity Enabled: False
+Is Stopwatch Enabled: False
+Level Theme: 
+
+Player Section
+--------------
+Can Double Jump: True
+Is Invisible: False
+Player's Name: 
+Player's Speed: 
+
+Audio Section
+-------------
+Enable Audio: False
+Track: 
+Custom Track: 
+
+Video Section
+-------------
+Window Width:  x Window Height: 
+Tool Background: 
