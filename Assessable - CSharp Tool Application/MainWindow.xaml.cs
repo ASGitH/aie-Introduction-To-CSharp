@@ -25,6 +25,7 @@ namespace Assessable_CSharp_Tool_Application
         GameSection gameSection = new GameSection();
         public MainWindow()
         {
+            File.Delete(gameSection.path);
             InitializeComponent();
             DataContext = gameSection;
 
@@ -69,10 +70,8 @@ namespace Assessable_CSharp_Tool_Application
 
         private void StartButton(object sender, RoutedEventArgs e)
         {
-            string dhdh = gameSection.ToolBackground;
-            MessageBox.Show(dhdh);
             MessageBox.Show(string.Format("Game Section" + Environment.NewLine + "------------" + Environment.NewLine + "Are Enemies Enabled: {0}" + Environment.NewLine + "Is Death Pit Rising: {1}" + Environment.NewLine + "Is Low Gravity Enabled: {2}" + Environment.NewLine + "Is Stopwatch Enabled: {3}" + Environment.NewLine + "Level Theme: {4}" + Environment.NewLine + Environment.NewLine + "Player Section" + Environment.NewLine + "--------------" + Environment.NewLine + "Can Double Jump: {5}" + Environment.NewLine + "Is Invisible: {6}" + Environment.NewLine + "Player's Name: {7}" + Environment.NewLine + "Player's Speed: {8}" + Environment.NewLine + Environment.NewLine + "Audio Section" + Environment.NewLine + "-------------" + Environment.NewLine + "Enable Audio: {9}" + Environment.NewLine + "Track: {10}" + Environment.NewLine + "Custom Track: {11}" + Environment.NewLine + Environment.NewLine + "Video Section" + Environment.NewLine + "-------------" + Environment.NewLine + "Window Width: {12}" + " x " + "Window Height: {13}" + Environment.NewLine + "Tool Background: {14}", gameSection.AreEnemiesEnabled, gameSection.IsDeathPitRising, gameSection.IsLowGravityEnabled, gameSection.IsStopwatchEnabled, gameSection.DisplayComboBoxSelection(LevelSelect), gameSection.CanDoubleJump, gameSection.IsInvisible, gameSection.PlayerName, gameSection.DisplaySliderValue(PlayerSpeed), gameSection.EnableAudio, gameSection.Track, gameSection.CustomTrack, gameSection.WindowWidth, gameSection.WindowHeight, gameSection.ToolBackground));
-            //Close();
+            Close();
         }
 
         private void NewClick(object sender, RoutedEventArgs e)
@@ -96,7 +95,6 @@ namespace Assessable_CSharp_Tool_Application
             gameSection.mediaPlayer.Stop();
             // Create OpenFileDialog
             Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
-
             // Set filter for file extension
             openFileDialog.Filter = "Supported Audio (*.acc; *.flac; *.m4a; *.mp3; *.ogg; *.wav; *.wma)|*.acc; *.flac; *.m4a; *.mp3; *.ogg; *.wav; *.wma";
 
@@ -119,6 +117,7 @@ namespace Assessable_CSharp_Tool_Application
             Nullable<bool> result = openFileDialog.ShowDialog();
             if (result == true)
             {
+                ToolBackgroundTextBox.Text = openFileDialog.FileName;
                 BackgroundCanvasImage.Source = new BitmapImage(new Uri(openFileDialog.FileName));
             }
         }
@@ -170,6 +169,7 @@ namespace Assessable_CSharp_Tool_Application
     public partial class GameSection : ScrollViewerSettings
     {
         // Misc.
+        public string path = @".\SJ.txt";
         public MediaPlayer mediaPlayer = new MediaPlayer();
 
         // Game Section
@@ -198,8 +198,6 @@ namespace Assessable_CSharp_Tool_Application
 
         public void WriteGameSectionToFile()
         {
-            string path = @".\Assessable - CSharp Tool Application\SJ.txt";
-
             try
             {
                 if (File.Exists(path))

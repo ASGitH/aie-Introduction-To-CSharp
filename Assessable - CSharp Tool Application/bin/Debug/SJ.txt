@@ -1,6 +1,6 @@
 Game Section
 ------------
-Are Enemies Enabled: True
+Are Enemies Enabled: False
 Is Death Pit Rising: False
 Is Low Gravity Enabled: False
 Is Stopwatch Enabled: False
@@ -17,9 +17,9 @@ Audio Section
 -------------
 Enable Audio: False
 Track: 
-Custom Track: 
+Custom Track: C:\Users\7319a\Documents\Music\Mojado - Piensa En Mí.mp3
 
 Video Section
 -------------
 Window Width:  x Window Height: 
-Tool Background: 
+Tool Background: C:\Users\7319a\Documents\Pictures\wallhaven-341735.jpg

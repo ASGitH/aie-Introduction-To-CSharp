@@ -117,7 +117,7 @@
                 <!-- (Misc) Change tool Background and Color -->
                 <Rectangle Fill="#FFF4F4F5" Height="80" HorizontalAlignment="Left" Margin="0,79,0,0" Stroke="Black" VerticalAlignment="Top" Width="342"/>
                 <TextBlock FontFamily="Times New Roman" FontSize="18" Height="22" Margin="25,85,25,207"><Run Text="Tool Background:"/></TextBlock>
-                <TextBox KeyDown="OnKeyDown" Margin="25,107,135,180" x:Name="ToolBackgroundTextBox" SpellCheck.IsEnabled="True" Text="{Binding ToolBackground, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox KeyDown="OnKeyDown" Margin="25,107,135,180" Name="ToolBackgroundTextBox" SpellCheck.IsEnabled="True" Text="{Binding ToolBackground, UpdateSourceTrigger=PropertyChanged}"/>
                 <Button Click="ToolBackgroundButton" Content="Browse Images" FontFamily="Times New Roman" FontSize="18" Margin="212,107,10,0" VerticalAlignment="Top"/>
             </Grid>
         </ScrollViewer>
