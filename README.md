@@ -4,7 +4,7 @@ Introduction to C# was a project created at the [Academy of Interactive Entertai
 
 Latest Update:
 
-*  March 1st, 2019
+* March 1st, 2019
   - Completion of project assignment
 
 ## Miscellaneous
